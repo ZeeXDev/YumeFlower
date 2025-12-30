@@ -159,20 +159,20 @@ STAR_PREMIUM_PLANS = {
 }
 
 Bot_cmds = {
-    "start": "ꜱᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ",
-    "trendlist": "ɢᴇᴛ ᴛᴏᴘ ꜱᴇᴀʀᴄʜ ʟɪꜱᴛ",
-    "myplan" : "ᴄʜᴇᴄᴋ ᴘʀᴇᴍɪᴜᴍ ꜱᴜʙꜱᴄʀɪᴘᴛɪᴏɴ",
-    "plan" :"ᴄʜᴇᴄᴋ ᴘʀᴇᴍɪᴜᴍ ᴘʀɪᴄᴇ",
-    "settings": "ᴄʜᴀɴɢᴇ sᴇᴛᴛɪɴɢs",
-    "group_cmd": "ᴅᴇʟᴇᴛᴇ ᴀ ꜱᴘᴇᴄɪꜰɪᴄ ꜰɪʟᴇ ꜰʀᴏᴍ ᴅʙ.",
-    "admin_cmd": "ᴅᴇʟᴇᴛᴇ ᴀ ꜱᴘᴇᴄɪꜰɪᴄ ꜰɪʟᴇ ꜰʀᴏᴍ ᴅʙ.",
-    "details": "ꜱᴇᴇ ɢʀᴏᴜᴘ ꜱᴇᴛᴛɪɴɢꜱ",
-    "reset_group": "ʀᴇꜱᴇᴛ ɢʀᴏᴜᴘ ꜱᴇᴛᴛɪɴɢꜱ", 
-    "stats": "ᴄʜᴇᴄᴋ ʙᴏᴛ ꜱᴛᴀᴛᴜꜱ.",
-    "delete": "ᴅᴇʟᴇᴛᴇ ᴀ ꜱᴘᴇᴄɪꜰɪᴄ ꜰɪʟᴇ ꜰʀᴏᴍ ᴅʙ.",
-    "movie_update": "ᴏɴ ᴏғғ ᴀᴄᴄᴏʀᴅɪɴɢ ʏᴏᴜʀ ɴᴇᴇᴅᴇᴅ...",
-    "pm_search": "ᴘᴍ sᴇᴀʀᴄʜ ᴏɴ ᴏғғ ᴀᴄᴄᴏʀᴅɪɴɢ ʏᴏᴜʀ ɴᴇᴇᴅᴇᴅ...",
-    "restart": "ʀᴇꜱᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ."
+    "start": "Démarrer le bot",
+    "trendlist": "Obtenir la liste des recherches les plus populaires",
+    "myplan": "Vérifier l'abonnement premium",
+    "plan": "Vérifier le prix du premium",
+    "settings": "Modifier les paramètres",
+    "group_cmd": "Supprimer un fichier spécifique de la base de données",
+    "admin_cmd": "Supprimer un fichier spécifique de la base de données",
+    "details": "Voir les paramètres du groupe",
+    "reset_group": "Réinitialiser les paramètres du groupe", 
+    "stats": "Vérifier l'état du bot",
+    "delete": "Supprimer un fichier spécifique de la base de données",
+    "movie_update": "Activer/désactiver selon vos besoins...",
+    "pm_search": "Recherche en MP activer/désactiver selon vos besoins...",
+    "restart": "Redémarrer le bot"
 }
 
 #Don't Change Anything Here

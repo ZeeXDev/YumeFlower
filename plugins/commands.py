@@ -95,7 +95,7 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-                    InlineKeyboardButton('+ Ajoutez-moi à votre groupe +', url=f'http://telegram.me/{temp.U_NAME}?startgroup=true')
+                    InlineKeyboardButton('+ Rejoignez Mon Groupe +', url=f'https://t.me/BubleWatchGrp')
                 ],[
                     InlineKeyboardButton('🧧 Tendances', callback_data="topsearch"),
                     InlineKeyboardButton('🎟️ Amélioration', callback_data="premium"),

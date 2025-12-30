@@ -696,7 +696,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "start":
         buttons = [[
-                    InlineKeyboardButton('+ Ajoutez-moi à votre groupe +', url=f'http://telegram.me/{temp.U_NAME}?startgroup=true')
+                    InlineKeyboardButton('+ Rejoignez Mon Groupe +', url=f'https://t.me/BubleWatchGrp')
                 ],[
                     InlineKeyboardButton('🧧 Tendances ', callback_data="topsearch"),
                     InlineKeyboardButton('🎟️ Améliorer ', callback_data="premium"),
@@ -841,7 +841,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     
     elif query.data == "me":
         buttons = [[
-            InlineKeyboardButton ('🎁 Source', callback_data='source'),
+            InlineKeyboardButton ('Canal de Films / Series', url='t.me/ZeeXClub'),
         ],[
             InlineKeyboardButton('⇋ Retour à l\'accueil ⇋', callback_data='start')
         ]]
