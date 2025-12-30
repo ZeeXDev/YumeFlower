@@ -1,268 +1,269 @@
 class script(object):
-    START_TXT = """<b>👋 ʜᴇʟʟᴏ {},
+    START_TXT = """<b>👋 Bonjour {},
 
-ɪ ᴀᴍ ᴀɴ ᴀᴅᴠᴀɴᴄᴇᴅ ᴀᴜᴛᴏ ꜰɪʟᴛᴇʀ ʙᴏᴛ.
+Je suis un bot de filtrage automatique avancé.
 
-ɪ ᴄᴀɴ ᴘʀᴏᴠɪᴅᴇ ᴍᴏᴠɪᴇꜱ, ꜱᴇʀɪᴇꜱ, ᴀɴɪᴍᴇꜱ, ᴀɴᴅ ᴍᴜᴄʜ ᴍᴏʀᴇ... 🎬
+Je peux fournir des films, séries, animes, et bien plus encore... 🎬
 
-ᴊᴜꜱᴛ ꜱᴇɴᴅ ᴍᴇ ᴛʜᴇ ɴᴀᴍᴇ ᴏꜰ ᴛʜᴇ ᴍᴏᴠɪᴇ/ꜱᴇʀɪᴇꜱ ʏᴏᴜ ᴡᴀɴᴛ. 🔍</b>"""
+Il suffit de m'envoyer le nom du film/série que vous voulez. 🔍</b>"""
 
-    FEATURES_TXT = """<b>🛠️ ʜᴇʀᴇ ᴀʀᴇ ᴍʏ ᴀᴠᴀɪʟᴀʙʟᴇ ꜰᴇᴀᴛᴜʀᴇꜱ 🛠️</b>"""
+    FEATURES_TXT = """<b>🛠️ Voici mes fonctionnalités disponibles 🛠️</b>"""
 
     ABOUT_TXT = """<b>╭───────────⍟
-├🤖 ᴍʏ ɴᴀᴍᴇ : <a href=https://t.me/{}>{}</a>
-├👑 ᴏᴡɴᴇʀ : <a href={}>ᴏᴡɴᴇʀ</a>
-├👨‍💻 ᴅᴇᴠᴇʟᴏᴘᴇʀ : <a href=https://t.me/SilentXBotz>ꜱɪʟᴇɴᴛxʙᴏᴛᴢ </a>
-├📕 ʟɪʙʀᴀʀʏ : <a href=https://github.com/pyrogram>ᴘʏʀᴏɢʀᴀᴍ</a>
-├✏️ ʟᴀɴɢᴜᴀɢᴇ : <a href=https://www.python.org>ᴘʏᴛʜᴏɴ 3</a>
-├💾 ᴅᴀᴛᴀʙᴀꜱᴇ : <a href=https://cloud.mongodb.com>ᴍᴏɴɢᴏ ᴅʙ</a>
-├📊 ʙᴜɪʟᴅ ᴠᴇʀꜱɪᴏɴ : V4.3 [ ꜱᴛᴀʙʟᴇ ]
+├🤖 Mon nom : <a href=https://t.me/{}>{}</a>
+├👑 Propriétaire : <a href={}>Propriétaire</a>
+├👨‍💻 Développeur : <a href=https://t.me/WorldZPrime>ZeeXClub</a>
+├📕 Bibliothèque : <a href=https://pyrogram.org>Pyrogram</a>
+├✏️ Langage : <a href=https://www.python.org>Python 3</a>
+├💾 Base de données : MySQL
+├📊 Version : V4.3 [ Stable ]
 ╰───────────────⍟</b>"""
 
-    FORCESUB_TEXT = """<b>⚠️ ᴀᴄᴄᴇꜱꜱ ᴅᴇɴɪᴇᴅ ⚠️
+    FORCESUB_TEXT = """<b>⚠️ Accès refusé ⚠️
 
-ʏᴏᴜ ɴᴇᴇᴅ ᴛᴏ ᴊᴏɪɴ ᴏᴜʀ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴀᴄᴄᴇꜱꜱ ᴛʜɪꜱ ʙᴏᴛ.
+Vous devez rejoindre notre chaîne de mise à jour pour accéder à ce bot.
 
-👇 ꜱᴛᴇᴘꜱ ᴛᴏ ᴠᴇʀɪꜰʏ:
-1️⃣ ᴄʟɪᴄᴋ "ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ" ʙᴜᴛᴛᴏɴ.
-2️⃣ ᴊᴏɪɴ ᴛʜᴇ ᴄʜᴀɴɴᴇʟ.
-3️⃣ ᴄʟɪᴄᴋ "ᴛʀʏ ᴀɢᴀɪɴ" ʙᴜᴛᴛᴏɴ.
+👇 Étapes de vérification :
+1️⃣ Cliquez sur le bouton "Rejoindre la chaîne de mise à jour".
+2️⃣ Rejoignez la chaîne.
+3️⃣ Cliquez sur le bouton "Réessayer".
 
-✨ ᴛʜᴀɴᴋ ʏᴏᴜ ꜰᴏʀ ʏᴏᴜʀ ꜱᴜᴘᴘᴏʀᴛ!</b>"""
+✨ Merci pour votre soutien !</b>"""
            
-    MULTI_STATUS_TXT = """<b>╭─[ ⚡ ᴅᴀᴛᴀʙᴀsᴇ ꜱᴛᴀᴛᴜꜱ ⚡ ]─⍟</b>
+    MULTI_STATUS_TXT = """<b>╭─[ ⚡ État de la base de données ⚡ ]─⍟</b>
 │
-<b>├─[ ᴅᴀᴛᴀʙᴀsᴇ 1 ]─⍟</b>
-├⋟ 👤 ᴜsᴇʀs ⋟ <code>{}</code>
-├⋟ 👥 ɢʀᴏᴜᴘs ⋟ <code>{}</code>
-├⋟ 💎 ᴘʀᴇᴍɪᴜᴍ ⋟ <code>{}</code>
-├⋟ 📂 ꜰɪʟᴇs ⋟ <code>{}</code>
-├⋟ 💾 ᴜsᴇᴅ ⋟ <code>{}</code>
-├⋟ 🆓 ꜰʀᴇᴇ ⋟ <code>{}</code>
+<b>├─[ Base de données 1 ]─⍟</b>
+├⋟ 👤 Utilisateurs ⋟ <code>{}</code>
+├⋟ 👥 Groupes ⋟ <code>{}</code>
+├⋟ 💎 Premium ⋟ <code>{}</code>
+├⋟ 📂 Fichiers ⋟ <code>{}</code>
+├⋟ 💾 Utilisé ⋟ <code>{}</code>
+├⋟ 🆓 Libre ⋟ <code>{}</code>
 │
-<b>├─[ ᴅᴀᴛᴀʙᴀsᴇ 2 ]─⍟</b>
-├⋟ 📂 ꜰɪʟᴇs ⋟ <code>{}</code>
-├⋟ 💾 ꜱɪᴢᴇ ⋟ <code>{}</code>
-├⋟ 🆓 ꜰʀᴇᴇ ⋟ <code>{}</code>
+<b>├─[ Base de données 2 ]─⍟</b>
+├⋟ 📂 Fichiers ⋟ <code>{}</code>
+├⋟ 💾 Taille ⋟ <code>{}</code>
+├⋟ 🆓 Libre ⋟ <code>{}</code>
 │
-<b>├─[ 🤖 ʙᴏᴛ ᴅᴇᴛᴀɪʟs ]─⍟</b>
-├⋟ ⏳ ᴜᴘᴛɪᴍᴇ ⋟ {}
-├⋟ ⚡ ʀᴀᴍ ⋟ <code>{}%</code>
-├⋟ 🔋 ᴄᴘᴜ ⋟ <code>{}%</code>
+<b>├─[ 🤖 Détails du bot ]─⍟</b>
+├⋟ ⏳ Temps de fonctionnement ⋟ {}
+├⋟ ⚡ RAM ⋟ <code>{}%</code>
+├⋟ 🔋 CPU ⋟ <code>{}%</code>
 │
-├⋟ 📊 ᴛᴏᴛᴀʟ ꜰɪʟᴇꜱ: <code>{}</code>
+├⋟ 📊 Total des fichiers : <code>{}</code>
 <b>╰──────────────────────⍟</b>"""
 
-    STATUS_TXT = """<b>╭─[ ⚡ ᴅᴀᴛᴀʙᴀsᴇ ꜱᴛᴀᴛᴜꜱ ⚡ ]─⍟</b>
+    STATUS_TXT = """<b>╭─[ ⚡ État de la base de données ⚡ ]─⍟</b>
 │
-<b>├─[ ᴅᴀᴛᴀʙᴀsᴇ ]─⍟</b>
-├⋟ 👤 ᴜsᴇʀs ⋟ <code>{}</code>
-├⋟ 👥 ɢʀᴏᴜᴘs ⋟ <code>{}</code>
-├⋟ 💎 ᴘʀᴇᴍɪᴜᴍ ⋟ <code>{}</code>
-├⋟ 📂 ꜰɪʟᴇs ⋟ <code>{}</code>
-├⋟ 💾 ᴜsᴇᴅ ⋟ <code>{}</code>
-├⋟ 🆓 ꜰʀᴇᴇ ⋟ <code>{}</code>
+<b>├─[ Base de données ]─⍟</b>
+├⋟ 👤 Utilisateurs ⋟ <code>{}</code>
+├⋟ 👥 Groupes ⋟ <code>{}</code>
+├⋟ 💎 Premium ⋟ <code>{}</code>
+├⋟ 📂 Fichiers ⋟ <code>{}</code>
+├⋟ 💾 Utilisé ⋟ <code>{}</code>
+├⋟ 🆓 Libre ⋟ <code>{}</code>
 │
-<b>├─[ 🤖 ʙᴏᴛ ᴅᴇᴛᴀɪʟs ]─⍟</b>
-├⋟ ⏳ ᴜᴘᴛɪᴍᴇ ⋟ {}
-├⋟ ⚡ ʀᴀᴍ ⋟ <code>{}%</code>
-├⋟ 🔋 ᴄᴘᴜ ⋟ <code>{}%</code>
+<b>├─[ 🤖 Détails du bot ]─⍟</b>
+├⋟ ⏳ Temps de fonctionnement ⋟ {}
+├⋟ ⚡ RAM ⋟ <code>{}%</code>
+├⋟ 🔋 CPU ⋟ <code>{}%</code>
 <b>╰──────────────────────⍟</b>"""
 
-    EARN_INFO = """<b>💰 <u>ʜᴏᴡ ᴛᴏ ᴇᴀʀɴ ᴍᴏɴᴇʏ ᴡɪᴛʜ ᴛʜɪꜱ ʙᴏᴛ</u> 💰
+    EARN_INFO = """<b>💰 <u>Comment gagner de l'argent avec ce bot</u> 💰
 
-1️⃣ ʏᴏᴜ ᴍᴜꜱᴛ ʜᴀᴠᴇ ᴀ ɢʀᴏᴜᴘ ᴡɪᴛʜ ᴀᴛ ʟᴇᴀꜱᴛ 100 ᴍᴇᴍʙᴇʀꜱ.
-2️⃣ ᴀᴅᴅ <a href=https://t.me/{}>ᴛʜɪꜱ ʙᴏᴛ</a> ᴀꜱ ᴀɴ ᴀᴅᴍɪɴ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ.
-3️⃣ ᴄʀᴇᴀᴛᴇ ᴀɴ ᴀᴄᴄᴏᴜɴᴛ ᴏɴ ᴀ ꜱʜᴏʀᴛᴇɴᴇʀ (ᴇ.ɢ., <a href=https://zipshort.net/>ᴢɪᴘꜱʜᴏʀᴛ</a>).
-4️⃣ ꜱᴇɴᴅ /settings ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀɴᴅ ᴄᴏɴꜰɪɢᴜʀᴇ ᴛʜᴇ ꜱʜᴏʀᴛᴇɴᴇʀ.
+1️⃣ Vous devez avoir un groupe avec au moins 100 membres.
+2️⃣ Ajoutez <a href=https://t.me/{}>ce bot</a> en tant qu'administrateur dans votre groupe.
+3️⃣ Créez un compte sur un service de raccourcissement d'URL (ex. <a href=https://zipshort.net/>Zipshort</a>).
+4️⃣ Envoyez /settings dans votre groupe et configurez le raccourcisseur.
 
-🔍 ᴄʜᴇᴄᴋ ᴅᴇᴛᴀɪʟꜱ: /details
+🔍 Voir les détails : /details
 
-💡 ɴᴏᴛᴇ: ᴛʜɪꜱ ʙᴏᴛ ɪꜱ ꜰʀᴇᴇ ᴛᴏ ᴜꜱᴇ ᴀɴᴅ ʜᴇʟᴘꜱ ʏᴏᴜ ᴍᴏɴᴇᴛɪᴢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ!</b>"""
+💡 Note : Ce bot est gratuit et vous aide à monétiser votre groupe !</b>"""
 
 
-    VERIFICATION_TEXT = """<b>👋 ʜᴇʏ {},
+    VERIFICATION_TEXT = """<b>👋 Salut {},
 
-🔒 ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ʀᴇᴏ̨ᴜɪʀᴇᴅ!
+🔒 Vérification requise !
 
-ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴠᴇʀɪꜰɪᴇᴅ. ᴘʟᴇᴀꜱᴇ ᴠᴇʀɪꜰʏ ᴛᴏ ɢᴇᴛ ᴜɴʟɪᴍɪᴛᴇᴅ ᴀᴄᴄᴇꜱꜱ.
+Vous n'êtes pas vérifié. Veuillez vérifier pour obtenir un accès illimité.
 
-📊 ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ꜱᴛᴀᴛᴜꜱ: 1/3
+📊 État de vérification : 1/3
 
-💡 <i>ᴡᴀɴᴛ ᴛᴏ ꜱᴋɪᴘ ᴛʜɪꜱ? ʙᴜʏ ᴘʀᴇᴍɪᴜᴍ ꜰᴏʀ ᴅɪʀᴇᴄᴛ ꜰɪʟᴇꜱ!</i></b>"""
+💡 <i>Vous voulez éviter cela ? Achetez Premium pour les fichiers directs !</i></b>"""
     
 
-    VERIFY_COMPLETE_TEXT = """<b>🎉 ᴄᴏɴɢʀᴀᴛᴜʟᴀᴛɪᴏɴꜱ {},
+    VERIFY_COMPLETE_TEXT = """<b>🎉 Félicitations {},
 
-✅ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ 1/3 ᴄᴏᴍᴘʟᴇᴛᴇᴅ!
+✅ Vérification 1/3 terminée !
 
-ʏᴏᴜ ɴᴏᴡ ʜᴀᴠᴇ ᴀᴄᴄᴇꜱꜱ ᴜɴᴛɪʟ ᴛʜᴇ ɴᴇxᴛ ᴄʜᴇᴄᴋᴘᴏɪɴᴛ.</b>"""
+Vous avez maintenant accès jusqu'au prochain point de contrôle.</b>"""
 
-    SECOND_VERIFICATION_TEXT = """<b>👋 ʜᴇʏ {},
+    SECOND_VERIFICATION_TEXT = """<b>👋 Salut {},
 
-🔒 ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ʀᴇᴏ̨ᴜɪʀᴇᴅ!
+🔒 Vérification requise !
 
-ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴠᴇʀɪꜰɪᴇᴅ. ᴘʟᴇᴀꜱᴇ ᴠᴇʀɪꜰʏ ᴛᴏ ɢᴇᴛ ᴜɴʟɪᴍɪᴛᴇᴅ ᴀᴄᴄᴇꜱꜱ.
+Vous n'êtes pas vérifié. Veuillez vérifier pour obtenir un accès illimité.
 
-📊 ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ꜱᴛᴀᴛᴜꜱ: 2/3
+📊 État de vérification : 2/3
 
-💡 <i>ᴡᴀɴᴛ ᴛᴏ ꜱᴋɪᴘ ᴛʜɪꜱ? ʙᴜʏ ᴘʀᴇᴍɪᴜᴍ ꜰᴏʀ ᴅɪʀᴇᴄᴛ ꜰɪʟᴇꜱ!</i></b>"""
+💡 <i>Vous voulez éviter cela ? Achetez Premium pour les fichiers directs !</i></b>"""
 
-    SECOND_VERIFY_COMPLETE_TEXT = """<b>🎉 ᴄᴏɴɢʀᴀᴛᴜʟᴀᴛɪᴏɴꜱ {},
+    SECOND_VERIFY_COMPLETE_TEXT = """<b>🎉 Félicitations {},
 
-✅ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ 2/3 ᴄᴏᴍᴘʟᴇᴛᴇᴅ!
+✅ Vérification 2/3 terminée !
 
-ʏᴏᴜ ɴᴏᴡ ʜᴀᴠᴇ ᴀᴄᴄᴇꜱꜱ ᴜɴᴛɪʟ ᴛʜᴇ ɴᴇxᴛ ᴄʜᴇᴄᴋᴘᴏɪɴᴛ.</b>"""
+Vous avez maintenant accès jusqu'au prochain point de contrôle.</b>"""
 
-    THIRDT_VERIFICATION_TEXT = """<b>👋 ʜᴇʏ {},
+    THIRDT_VERIFICATION_TEXT = """<b>👋 Salut {},
 
-🔒 ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ʀᴇᴏ̨ᴜɪʀᴇᴅ!
+🔒 Vérification requise !
 
-ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴠᴇʀɪꜰɪᴇᴅ. ᴘʟᴇᴀꜱᴇ ᴠᴇʀɪꜰʏ ᴛᴏ ɢᴇᴛ ᴜɴʟɪᴍɪᴛᴇᴅ ᴀᴄᴄᴇꜱꜱ ꜰᴏʀ 24 ʜᴏᴜʀꜱ.
+Vous n'êtes pas vérifié. Veuillez vérifier pour obtenir un accès illimité pendant 24 heures.
 
-📊 ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ꜱᴛᴀᴛᴜꜱ: 3/3
+📊 État de vérification : 3/3
 
-💡 <i>ᴡᴀɴᴛ ᴛᴏ ꜱᴋɪᴘ ᴛʜɪꜱ? ʙᴜʏ ᴘʀᴇᴍɪᴜᴍ ꜰᴏʀ ᴅɪʀᴇᴄᴛ ꜰɪʟᴇꜱ!</i></b>"""
+💡 <i>Vous voulez éviter cela ? Achetez Premium pour les fichiers directs !</i></b>"""
 
-    THIRDT_VERIFY_COMPLETE_TEXT= """<b>🎉 ᴄᴏɴɢʀᴀᴛᴜʟᴀᴛɪᴏɴꜱ {},
+    THIRDT_VERIFY_COMPLETE_TEXT= """<b>🎉 Félicitations {},
 
-✅ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ 3/3 ᴄᴏᴍᴘʟᴇᴛᴇᴅ!
+✅ Vérification 3/3 terminée !
 
-ʏᴏᴜ ɴᴏᴡ ʜᴀᴠᴇ ᴜɴʟɪᴍɪᴛᴇᴅ ᴀᴄᴄᴇꜱꜱ ꜰᴏʀ ᴛʜᴇ ɴᴇxᴛ 24 ʜᴏᴜʀꜱ.</b>"""
+Vous avez maintenant un accès illimité pour les 24 prochaines heures.</b>"""
 
-    VERIFIED_LOG_TEXT = """<b>#VerificationCompleted
+    VERIFIED_LOG_TEXT = """<b>#VérificationTerminée
 
-👤 ᴜꜱᴇʀ: {} [ <code>{}</code> ]
-📆 ᴅᴀᴛᴇ: <code>{} </code>
-📊 ꜱᴛᴀᴛᴜꜱ: #Verificaton_{}_Completed</b>"""
+👤 Utilisateur : {} [ <code>{}</code> ]
+📆 Date : <code>{}</code>
+📊 Statut : #Vérification_{}_Terminée</b>"""
        
-    LOG_TEXT_G = """<b>#NewGroupDetails
+    LOG_TEXT_G = """<b>#NouveauGroupe
 
-🏠 ɢʀᴏᴜᴘ: {}
-🆔 ɪᴅ: <code>{}</code>
-👥 ᴍᴇᴍʙᴇʀꜱ: <code>{}</code>
-👤 ᴀᴅᴅᴇᴅ ʙʏ: {}</b>"""
+🏠 Groupe : {}
+🆔 ID : <code>{}</code>
+👥 Membres : <code>{}</code>
+👤 Ajouté par : {}</b>"""
 
-    LOG_TEXT_P = """<b>#NewUserStarted
+    LOG_TEXT_P = """<b>#NouvelUtilisateur
 
-🆔 ɪᴅ: <code>{}</code>
-👤 ɴᴀᴍᴇ: {}</b>"""
+🆔 ID : <code>{}</code>
+👤 Nom : {}</b>"""
 
-    ALRT_TXT = """ʜᴇʟʟᴏ {},
-ᴛʜɪꜱ ɪꜱ ɴᴏᴛ ʏᴏᴜʀ ᴍᴏᴠɪᴇ ʀᴇǫᴜᴇꜱᴛ,
-ʀᴇǫᴜᴇꜱᴛ ʏᴏᴜʀ'ꜱ..."""
+    ALRT_TXT = """Bonjour {},
+ce n'est pas votre demande de film,
+demandez le vôtre..."""
 
-    OLD_ALRT_TXT = """ʜᴇʏ {},
-ʏᴏᴜ ᴀʀᴇ ᴜꜱɪɴɢ ᴏɴᴇ ᴏꜰ ᴍʏ ᴏʟᴅ ᴍᴇꜱꜱᴀɢᴇꜱ, 
-ᴘʟᴇᴀꜱᴇ ꜱᴇɴᴅ ᴛʜᴇ ʀᴇǫᴜᴇꜱᴛ ᴀɢᴀɪɴ."""
+    OLD_ALRT_TXT = """Hé {},
+vous utilisez un de mes anciens messages,
+veuillez renvoyer la demande."""
 
-    CUDNT_FND = """ɪ ᴄᴏᴜʟᴅɴ'ᴛ ꜰɪɴᴅ ᴀɴʏᴛʜɪɴɢ ʀᴇʟᴀᴛᴇᴅ ᴛᴏ {}
-ᴅɪᴅ ʏᴏᴜ ᴍᴇᴀɴ ᴀɴʏ ᴏɴᴇ ᴏꜰ ᴛʜᴇꜱᴇ ?"""
+    CUDNT_FND = """Je n'ai rien trouvé concernant {}
+Vouliez-vous dire l'un de ceux-ci ?"""
 
-    I_CUDNT = """<b><i>ᴛʜɪꜱ ᴍᴏᴠɪᴇ ɪꜱ ɴᴏᴛ ᴄᴜʀʀᴇɴᴛʟʏ ᴀᴠᴀɪʟᴀʙʟᴇ.
+    I_CUDNT = """<b><i>Ce film n'est actuellement pas disponible.
 
-ɪᴛ ʜᴀꜱ ᴇɪᴛʜᴇʀ ɴᴏᴛ ʙᴇᴇɴ ʀᴇʟᴇᴀꜱᴇᴅ ᴏʀ ʜᴀꜱ ɴᴏᴛ ʏᴇᴛ ʙᴇᴇɴ ᴀᴅᴅᴇᴅ ᴛᴏ ᴛʜᴇ ᴅᴀᴛᴀʙᴀꜱᴇ.</i></b>"""
+Il n'a pas encore été publié ou n'a pas encore été ajouté à la base de données.</i></b>"""
     
-    I_CUD_NT = """<b><i>ᴛʜɪꜱ ᴍᴏᴠɪᴇ ɪꜱ ɴᴏᴛ ᴄᴜʀʀᴇɴᴛʟʏ ᴀᴠᴀɪʟᴀʙʟᴇ.
+    I_CUD_NT = """<b><i>Ce film n'est actuellement pas disponible.
 
-ɪᴛ ʜᴀꜱ ᴇɪᴛʜᴇʀ ɴᴏᴛ ʙᴇᴇɴ ʀᴇʟᴇᴀꜱᴇᴅ ᴏʀ ʜᴀꜱ ɴᴏᴛ ʏᴇᴛ ʙᴇᴇɴ ᴀᴅᴅᴇᴅ ᴛᴏ ᴛʜᴇ ᴅᴀᴛᴀʙᴀꜱᴇ.</i></b>"""
+Il n'a pas encore été publié ou n'a pas encore été ajouté à la base de données.</i></b>"""
     
-    MVE_NT_FND = """<b><i>ᴛʜɪꜱ ᴍᴏᴠɪᴇ ɪꜱ ɴᴏᴛ ᴄᴜʀʀᴇɴᴛʟʏ ᴀᴠᴀɪʟᴀʙʟᴇ.
+    MVE_NT_FND = """<b><i>Ce film n'est actuellement pas disponible.
 
-ɪᴛ ʜᴀꜱ ᴇɪᴛʜᴇʀ ɴᴏᴛ ʙᴇᴇɴ ʀᴇʟᴇᴀꜱᴇᴅ ᴏʀ ʜᴀꜱ ɴᴏᴛ ʏᴇᴛ ʙᴇᴇɴ ᴀᴅᴅᴇᴅ ᴛᴏ ᴛʜᴇ ᴅᴀᴛᴀʙᴀꜱᴇ.</i></b>"""
+Il n'a pas encore été publié ou n'a pas encore été ajouté à la base de données.</i></b>"""
     
-    TOP_ALRT_MSG = """ꜱᴇᴀʀᴄʜɪɴɢ ꜰᴏʀ ǫᴜᴇʀʏ ɪɴ ᴍʏ ᴅᴀᴛᴀʙᴀꜱᴇ..."""
+    TOP_ALRT_MSG = """Recherche de requête dans ma base de données..."""
 
-    MELCOW_ENG = """<b>👋 ʜᴇʟʟᴏ {},\n\n🍁 ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ\n🌟 {} \n\n🔍 ᴊᴜꜱᴛ ᴛʏᴘᴇ ᴛʜᴇ ɴᴀᴍᴇ ᴏꜰ ᴛʜᴇ ᴍᴏᴠɪᴇ ᴏʀ ꜱᴇʀɪᴇꜱ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ.\n\n⚠️ ɴᴇᴇᴅ ʜᴇʟᴘ? ᴄᴏɴᴛᴀᴄᴛ ᴜꜱ ʜᴇʀᴇ 👇</b>"""
+    MELCOW_ENG = """<b>👋 Bonjour {},\n\n🍁 Bienvenue dans\n🌟 {}\n\n🔍 Tapez simplement le nom du film ou de la série que vous voulez télécharger.\n\n⚠️ Besoin d'aide ? Contactez-nous ici 👇</b>"""
     
     DISCLAIMER_TXT = """
-<b>ᴛʜɪꜱ ɪꜱ ᴀɴ ᴏᴘᴇɴ ꜱᴏᴜʀᴄᴇ ᴘʀᴏᴊᴇᴄᴛ.
+<b>Il s'agit d'un projet open source.
 
-ᴀʟʟ ᴛʜᴇ ꜰɪʟᴇꜱ ɪɴ ᴛʜɪꜱ ʙᴏᴛ ᴀʀᴇ ꜰʀᴇᴇʟʏ ᴀᴠᴀɪʟᴀʙʟᴇ ᴏɴ ᴛʜᴇ ɪɴᴛᴇʀɴᴇᴛ ᴏʀ ᴘᴏꜱᴛᴇᴅ ʙʏ ꜱᴏᴍᴇʙᴏᴅʏ ᴇʟꜱᴇ. ᴊᴜꜱᴛ ꜰᴏʀ ᴇᴀꜱʏ ꜱᴇᴀʀᴄʜɪɴɢ ᴛʜɪꜱ ʙᴏᴛ ɪꜱ ɪɴᴅᴇxɪɴɢ ꜰɪʟᴇꜱ ᴡʜɪᴄʜ ᴀʀᴇ ᴀʟʀᴇᴀᴅʏ ᴜᴘʟᴏᴀᴅᴇᴅ ᴏɴ ᴛᴇʟᴇɢʀᴀᴍ. ᴡᴇ ʀᴇꜱᴘᴇᴄᴛ ᴀʟʟ ᴛʜᴇ ᴄᴏᴘʏʀɪɢʜᴛ ʟᴀᴡꜱ ᴀɴᴅ ᴡᴏʀᴋꜱ ɪɴ ᴄᴏᴍᴘʟɪᴀɴᴄᴇ ᴡɪᴛʜ ᴅᴍᴄᴀ ᴀɴᴅ ᴇᴜᴄᴅ. ɪꜰ ᴀɴʏᴛʜɪɴɢ ɪꜱ ᴀɢᴀɪɴꜱᴛ ʟᴀᴡ ᴘʟᴇᴀꜱᴇ ᴄᴏɴᴛᴀᴄᴛ ᴍᴇ ꜱᴏ ᴛʜᴀᴛ ɪᴛ ᴄᴀɴ ʙᴇ ʀᴇᴍᴏᴠᴇᴅ ᴀꜱᴀᴘ. ɪᴛ ɪꜱ ꜰᴏʀʙɪᴅᴅᴇɴ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ, ꜱᴛʀᴇᴀᴍ, ʀᴇᴘʀᴏᴅᴜᴄᴇ, ꜱʜᴀʀᴇ ᴏʀ ᴄᴏɴꜱᴜᴍᴇ ᴄᴏɴᴛᴇɴᴛ ᴡɪᴛʜᴏᴜᴛ ᴇxᴘʟɪᴄɪᴛ ᴘᴇʀᴍɪꜱꜱɪᴏɴ ꜰʀᴏᴍ ᴛʜᴇ ᴄᴏɴᴛᴇɴᴛ ᴄʀᴇᴀᴛᴏʀ ᴏʀ ʟᴇɢᴀʟ ᴄᴏᴘʏʀɪɢʜᴛ ʜᴏʟᴅᴇʀ. ɪꜰ ʏᴏᴜ ʙᴇʟɪᴇᴠᴇ ᴛʜɪꜱ ʙᴏᴛ ɪꜱ ᴠɪᴏʟᴀᴛɪɴɢ ʏᴏᴜʀ ɪɴᴛᴇʟʟᴇᴄᴛᴜᴀʟ ᴘʀᴏᴘᴇʀᴛʏ, ᴄᴏɴᴛᴀᴄᴛ ᴛʜᴇ ʀᴇꜱᴘᴇᴄᴛɪᴠᴇ ᴄʜᴀɴɴᴇʟꜱ ꜰᴏʀ ʀᴇᴍᴏᴠᴀʟ. ᴛʜᴇ ʙᴏᴛ ᴅᴏᴇꜱ ɴᴏᴛ ᴏᴡɴ ᴀɴʏ ᴏꜰ ᴛʜᴇꜱᴇ ᴄᴏɴᴛᴇɴᴛꜱ, ɪᴛ ᴏɴʟʏ ɪɴᴅᴇx ᴛʜᴇ ꜰɪʟᴇꜱ ꜰʀᴏᴍ ᴛᴇʟᴇɢʀᴀᴍ.
+Tous les fichiers de ce bot sont librement disponibles sur Internet ou publiés par quelqu'un d'autre. Ce bot indexe simplement les fichiers déjà téléchargés sur Telegram pour faciliter la recherche. Nous respectons toutes les lois sur le droit d'auteur et travaillons en conformité avec le DMCA et l'EUCD. Si quelque chose est illégal, veuillez me contacter pour qu'il puisse être supprimé dès que possible. Il est interdit de télécharger, diffuser, reproduire, partager ou consommer du contenu sans l'autorisation explicite du créateur ou du détenteur des droits d'auteur. Si vous pensez que ce bot viole votre propriété intellectuelle, contactez les chaînes respectives pour suppression. Le bot ne possède aucun de ces contenus, il indexe uniquement les fichiers de Telegram.
 </b>"""
 
-    PREMIUM_TEXT = """<b>💎 <u>ᴘʀᴇᴍɪᴜᴍ ᴘʟᴀɴꜱ</u> 💎
+    PREMIUM_TEXT = """<b>💎 <u>Forfaits Premium</u> 💎
 
-🗓️ 07 ᴅᴀʏꜱ  ➪  15 ₹ / 15 ⭐
-🗓️ 15 ᴅᴀʏꜱ  ➪  30 ₹ / 30 ⭐
-🗓️ 01 ᴍᴏɴᴛʜ ➪  60 ₹ / 60 ⭐
-🗓️ 02 ᴍᴏɴᴛʜꜱ ➪ 120 ₹ / 120 ⭐
-🗓️ 03 ᴍᴏɴᴛʜꜱ ➪ 220 ₹ / 220 ⭐
+🗓️ 07 jours  ➪  500 XOf / 15 ⭐
+🗓️ 15 jours  ➪  1000 XOf / 30 ⭐
+🗓️ 01 mois ➪  2000 XOf / 60 ⭐
+🗓️ 02 mois ➪  3500 XOf / 120 ⭐
+🗓️ 03 mois ➪  6000 XOf / 220 ⭐
 
-📜 <a href='https://t.me/+blcE2jS-iGtkMjNl'>ᴄʜᴇᴄᴋ ᴘʀᴏᴏꜰꜱ</a>
+<b>NB: les paiements sont aussi faisable en Franc Congolais, EUR, USD et Crypto
 
-⚠️ ɪᴍᴘᴏʀᴛᴀɴᴛ:
-1️⃣ ꜱᴇɴᴅ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ᴀꜰᴛᴇʀ ᴘᴀʏᴍᴇɴᴛ.
-2️⃣ ᴡᴀɪᴛ ꜰᴏʀ ᴀᴅᴍɪɴ ᴄᴏɴꜰɪʀᴍᴀᴛɪᴏɴ ᴛᴏ ʙᴇ ᴀᴅᴅᴇᴅ.</b>"""
 
-    PREMIUM_STAR_TEXT = """<b><blockquote>ᴘᴀʏᴍᴇɴᴛ ᴍᴇᴛʜᴏᴅ: ᴛᴇʟᴇɢʀᴀᴍ ꜱᴛᴀʀꜱ ⭐</blockquote>
+⚠️ Important :
+1️⃣ Envoyez une capture d'écran après paiement.
+2️⃣ Attendez la confirmation de l'administrateur pour être ajouté.</b>"""
 
-ɴᴏᴡ ʏᴏᴜ ᴄᴀɴ ʙᴜʏ ᴏᴜʀ ᴘʀᴇᴍɪᴜᴍ ꜱᴇʀᴠɪᴄᴇ ᴜꜱɪɴɢ ᴛᴇʟᴇɢʀᴀᴍ ꜱᴛᴀʀꜱ.  
+    PREMIUM_STAR_TEXT = """<b><blockquote>Méthode de paiement : Étoiles Telegram ⭐</blockquote>
 
-ɪꜰ ʏᴏᴜ ꜰᴀᴄᴇ ᴀɴʏ ᴘʀᴏʙʟᴇᴍ, ᴛᴀᴋᴇ ᴀ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ᴀɴᴅ ꜱᴇɴᴅ ɪᴛ ᴛᴏ - @SilentXBotz
+Vous pouvez maintenant acheter notre service premium en utilisant les étoiles Telegram.  
 
-ꜱᴇʟᴇᴄᴛ ʏᴏᴜʀ ᴅᴇꜱɪʀᴇᴅ ᴀᴍᴏᴜɴᴛ ᴀɴᴅ ᴘᴜʀᴄʜᴀꜱᴇ ᴀ ꜱᴜʙꜱᴄʀɪᴘᴛɪᴏɴ 👇.</b>
+Si vous rencontrez un problème, prenez une capture d'écran et envoyez-la à - @WorldZPrimeBot
+
+Sélectionnez le montant désiré et achetez un abonnement 👇.</b>
 """
 
-    PREMIUM_UPI_TEXT = """<b><blockquote>ᴘᴀʏᴍᴇɴᴛ ᴍᴇᴛʜᴏᴅ: ᴜᴘɪ</blockquote>
+    PREMIUM_UPI_TEXT = """<b><blockquote>Méthode de paiement : Mobile money, Crypto </blockquote>
 
-ʏᴏᴜ ᴄᴀɴ ᴘᴜʀᴄʜᴀꜱᴇ ᴘʀᴇᴍɪᴜᴍ ᴛʜʀᴏᴜɢʜ ᴜᴘɪ , ɴᴇᴛ ʙᴀɴᴋɪɴɢ.
+Vous pouvez acheter Premium via Mobile Money.
 
-💳 ᴜᴘɪ ɪᴅ - <code>ɴᴏ ᴀᴠᴀɪʟᴀʙʟᴇ ʀɪɢʜᴛ ɴᴏᴡ</code>
+💳 Virement bancaire - <code>non disponible actuellement</code>
 
-💢 ᴍᴜꜱᴛ ꜱᴇɴᴅ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ᴀꜰᴛᴇʀ ᴘᴀʏᴍᴇɴᴛ.
+💢 Doit envoyer une capture d'écran après paiement.
 
-‼️ ᴀꜰᴛᴇʀ ꜱᴇɴᴅɪɴɢ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ᴘʟᴇᴀꜱᴇ ɢɪᴠᴇ ᴜꜱ ꜱᴏᴍᴇᴛɪᴍᴇ ᴛᴏ ᴀᴅᴅ ʏᴏᴜ ɪɴ ᴘʀᴇᴍɪᴜᴍ ʟɪꜱᴛ.</b>"""
+‼️ Après avoir envoyé la capture d'écran, veuillez nous laisser un peu de temps pour vous ajouter à la liste Premium.</b>"""
     
     
-    BPREMIUM_TXT = """<blockquote>🎁 <b>ᴘʀᴇᴍɪᴜᴍ ꜰᴇᴀᴛᴜʀᴇꜱ</b> :</blockquote>
+    BPREMIUM_TXT = """<blockquote>🎁 <b>Fonctionnalités Premium</b> :</blockquote>
 
-○ ɴᴏ ɴᴇᴇᴅ ᴛᴏ ᴠᴇʀɪꜰʏ
-○ ɴᴏ ɴᴇᴇᴅ ᴛᴏ ᴏᴘᴇɴ ʟɪɴᴋꜱ
-○ ᴅɪʀᴇᴄᴛ ꜰɪʟᴇꜱ   
-○ ᴀᴅ-ꜰʀᴇᴇ ᴇxᴘᴇʀɪᴇɴᴄᴇ 
-○ ʜɪɢʜ-ꜱᴘᴇᴇᴅ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ                         
-○ ᴍᴜʟᴛɪ-ᴘʟᴀʏᴇʀ ꜱᴛʀᴇᴀᴍɪɴɢ ʟɪɴᴋꜱ                           
-○ ᴜɴʟɪᴍɪᴛᴇᴅ ᴍᴏᴠɪᴇꜱ & ꜱᴇʀɪᴇꜱ                                                                        
-○ ꜰᴜʟʟ ᴀᴅᴍɪɴ ꜱᴜᴘᴘᴏʀᴛ                              
-○ ʀᴇǫᴜᴇꜱᴛ ᴡɪʟʟ ʙᴇ ᴄᴏᴍᴘʟᴇᴛᴇᴅ ɪɴ 1ʜ [ ɪꜰ ᴀᴠᴀɪʟᴀʙʟᴇ ]
+○ Pas besoin de vérification
+○ Pas besoin d'ouvrir les liens
+○ Fichiers directs   
+○ Expérience sans publicité 
+○ Liens de téléchargement haute vitesse                         
+○ Liens de streaming multi-joueurs                           
+○ Films et séries illimités                                                                        
+○ Support administrateur complet                              
+○ Les demandes seront complétées en 1h [ si disponible ]
 
-• ʏᴏᴜ ᴄᴀɴ ɢᴇᴛ ᴘʀᴇᴍɪᴜᴍ ʙʏ ʀᴇꜰᴇʀɪɴɢ ʏᴏᴜʀ ꜰʀɪᴇɴᴅꜱ ᴏʀ ʏᴏᴜ ᴄᴀɴ ʙᴜʏ ᴘʀᴇᴍɪᴜᴍ ꜱᴇʀᴠɪᴄᴇ 
+• Vous pouvez obtenir Premium en parrainant vos amis ou vous pouvez acheter le service premium 
 
 •─────•─────────•─────•
-◉ ᴄʜᴇᴄᴋ ʏᴏᴜʀ ᴀᴄᴛɪᴠᴇ ᴘʟᴀɴ : /myplan
+◉ Vérifiez votre plan actif : /myplan
 
-‼️ ᴀꜰᴛᴇʀ ꜱᴇɴᴅɪɴɢ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ɢɪᴠᴇ ᴜꜱ ꜱᴏᴍᴇᴛɪᴍᴇꜱ ᴛᴏ ᴀᴅᴅ ʏᴏᴜ ɪɴ ᴘʀᴇᴍɪᴜᴍ ʟɪꜱᴛ."""   
+‼️ Après avoir envoyé la capture d'écran, laissez-nous un peu de temps pour vous ajouter à la liste Premium."""   
     
       
     NORSLTS = """ 
-#NoResults
+#AucunRésultat
 
-ɪᴅ : <code>{}</code>
-ɴᴀᴍᴇ : {}
+ID : <code>{}</code>
+Nom : {}
 
-ᴍᴇꜱꜱᴀɢᴇ : <b>{}</b>"""
+Message : <b>{}</b>"""
     
     CAPTION = """<b>{file_name}\n
-📤 ᴜᴘʟᴏᴀᴅᴇᴅ ʙʏ: <a href="https://t.me/SilentXBotz">SɪʟᴇɴᴛXʙᴏᴛᴢ</a></b>"""
+📤 Téléversé par : <a href="https://t.me/BubleWatch">Buble Watch</a></b>"""
 
     IMDB_TEMPLATE_TXT = """
-<b>🎬 ᴛɪᴛʟᴇ: <a href={url}>{title}</a>
-🎭 ɢᴇɴʀᴇꜱ: {genres}
-📅 ʏᴇᴀʀ: <a href={url}/releaseinfo>{year}</a>
-⭐ ʀᴀᴛɪɴɢ: <a href={url}/ratings>{rating}</a> / 10 ({votes} ᴠᴏᴛᴇꜱ)
-💿 ʀᴜɴᴛɪᴍᴇ: {runtime} ᴍɪɴꜱ
+<b>🎬 Titre : <a href={url}>{title}</a>
+🎭 Genres : {genres}
+📅 Année : <a href={url}/releaseinfo>{year}</a>
+⭐ Note : <a href={url}/ratings>{rating}</a> / 10 ({votes} votes)
+💿 Durée : {runtime} minutes
 
-⏳ ʀᴇꜱᴜʟᴛ ꜱʜᴏᴡɴ ɪɴ: {remaining_seconds} ꜱᴇᴄᴏɴᴅꜱ
-👤 ʀᴇᴏ̨ᴜᴇꜱᴛᴇᴅ ʙʏ: {message.from_user.mention}</b>"""
+⏳ Résultats affichés en : {remaining_seconds} secondes
+👤 Demandé par : {message.from_user.mention}</b>"""
 
     RESTART_TXT = """
-<b>✅ ʙᴏᴛ ʀᴇꜱᴛᴀʀᴛᴇᴅ!
+<b>✅ Bot redémarré !
 
-📅 ᴅᴀᴛᴇ: <code>{}</code>
-⏰ ᴛɪᴍᴇ: <code>{}</code>
-🌐 ᴢᴏɴᴇ: <code>ᴀꜱɪᴀ/ᴋᴏʟᴋᴀᴛᴀ</code>
-🛠️ ᴠᴇʀꜱɪᴏɴ: <code>v4.3 [ ꜱᴛᴀʙʟᴇ ]</code>
+📅 Date : <code>{}</code>
+⏰ Heure : <code>{}</code>
+🌐 Fuseau horaire : <code>Asie/Kolkata</code>
+🛠️ Version : <code>v4.3 [ Stable ]</code>
 </b>"""
     LOGO = """
   ____  _ _            _  __  ______        _       
@@ -271,55 +272,55 @@ class script(object):
   ___) | | |  __/ | | | |_ /  \| |_) | (_) | |_ / / 
  |____/|_|_|\___|_| |_|\__/_/\_\____/ \___/ \__/___|
                                                                                                                                                                             
-𝙱𝙾𝚃 𝚆𝙾𝚁𝙺𝙸𝙽𝙶 𝙿𝚁𝙾𝙿𝙴𝚁𝙻𝚈...."""
+BOT FONCTIONNANT CORRECTEMENT...."""
 
-    ADMIN_CMD = """<b>👮‍♂️ ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅꜱ:
+    ADMIN_CMD = """<b>👮‍♂️ Commandes administrateur :
 
-• /movie_update - <code>ᴛᴏɢɢʟᴇ ᴍᴏᴠɪᴇ ᴜᴘᴅᴀᴛᴇ</code>
-• /pm_search - <code>ᴛᴏɢɢʟᴇ ᴘᴍ ꜱᴇᴀʀᴄʜ</code>
-• /verifyon - <code>ᴛᴜʀɴ ᴏɴ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ</code>
-• /verifyoff - <code>ᴛᴜʀɴ ᴏꜰꜰ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ</code>
-• /logs - <code>ᴄʜᴇᴄᴋ ᴇʀʀᴏʀ ʟᴏɢꜱ</code>
-• /delete - <code>ᴅᴇʟᴇᴛᴇ ꜰɪʟᴇ ꜰʀᴏᴍ ᴅʙ</code>
-• /users - <code>ʟɪꜱᴛ ᴜꜱᴇʀꜱ</code>
-• /chats - <code>ʟɪꜱᴛ ɢʀᴏᴜᴘꜱ</code>
-• /leave  - <code>ʟᴇᴀᴠᴇ ɢʀᴏᴜᴘ</code>
-• /disable  - <code>ᴅɪꜱᴀʙʟᴇ ɢʀᴏᴜᴘ</code>
-• /ban  - <code>ʙᴀɴ ᴜꜱᴇʀ</code>
-• /unban  - <code>ᴜɴʙᴀɴ ᴜꜱᴇʀ</code>
-• /channel - <code>ʟɪꜱᴛ ᴄᴏɴɴᴇᴄᴛᴇᴅ ɢʀᴏᴜᴘꜱ</code>
-• /broadcast - <code>ʙʀᴏᴀᴅᴄᴀꜱᴛ ᴛᴏ ᴜꜱᴇʀꜱ</code>
-• /grp_broadcast - <code>ʙʀᴏᴀᴅᴄᴀꜱᴛ ᴛᴏ ɢʀᴏᴜᴘꜱ</code>
-• /gfilter - <code>ᴀᴅᴅ ɢʟᴏʙᴀʟ ꜰɪʟᴛᴇʀ</code>
-• /gfilters - <code>ʟɪꜱᴛ ɢʟᴏʙᴀʟ ꜰɪʟᴛᴇʀꜱ</code>
-• /delg - <code>ᴅᴇʟᴇᴛᴇ ɢʟᴏʙᴀʟ ꜰɪʟᴛᴇʀ</code>
-• /delallg - <code>ᴅᴇʟᴇᴛᴇ ᴀʟʟ ɢʟᴏʙᴀʟ ꜰɪʟᴛᴇʀꜱ</code>
-• /deletefiles - <code>ᴅᴇʟᴇᴛᴇ ᴄᴀᴍʀɪᴘ/ᴘʀᴇᴅᴠᴅ</code>
-• /send - <code>ꜱᴇɴᴅ ᴘᴍ ᴛᴏ ᴜꜱᴇʀ</code>
-• /add_premium - <code>ᴀᴅᴅ ᴘʀᴇᴍɪᴜᴍ</code>
-• /remove_premium - <code>ʀᴇᴍᴏᴠᴇ ᴘʀᴇᴍɪᴜᴍ</code>
-• /premium_users - <code>ʟɪꜱᴛ ᴘʀᴇᴍɪᴜᴍ ᴜꜱᴇʀꜱ</code>
-• /get_premium - <code>ᴄʜᴇᴄᴋ ᴘʀᴇᴍɪᴜᴍ ɪɴꜰᴏ</code>
-• /restart - <code>ʀᴇꜱᴛᴀʀᴛ ʙᴏᴛ</code></b>"""
+• /movie_update - <code>activer/désactiver les mises à jour de films</code>
+• /pm_search - <code>activer/désactiver la recherche en MP</code>
+• /verifyon - <code>activer la vérification</code>
+• /verifyoff - <code>désactiver la vérification</code>
+• /logs - <code>vérifier les logs d'erreur</code>
+• /delete - <code>supprimer un fichier de la base de données</code>
+• /users - <code>liste des utilisateurs</code>
+• /chats - <code>liste des groupes</code>
+• /leave  - <code>quitter un groupe</code>
+• /disable  - <code>désactiver un groupe</code>
+• /ban  - <code>bannir un utilisateur</code>
+• /unban  - <code>débannir un utilisateur</code>
+• /channel - <code>liste des groupes connectés</code>
+• /broadcast - <code>diffuser aux utilisateurs</code>
+• /grp_broadcast - <code>diffuser aux groupes</code>
+• /gfilter - <code>ajouter un filtre global</code>
+• /gfilters - <code>liste des filtres globaux</code>
+• /delg - <code>supprimer un filtre global</code>
+• /delallg - <code>supprimer tous les filtres globaux</code>
+• /deletefiles - <code>supprimer les fichiers camrip/prédvd</code>
+• /send - <code>envoyer un MP à un utilisateur</code>
+• /add_premium - <code>ajouter un utilisateur Premium</code>
+• /remove_premium - <code>retirer un utilisateur Premium</code>
+• /premium_users - <code>liste des utilisateurs Premium</code>
+• /get_premium - <code>vérifier les infos Premium</code>
+• /restart - <code>redémarrer le bot</code></b>"""
 
-    GROUP_CMD = """<b>👥 ɢʀᴏᴜᴘ ᴄᴏᴍᴍᴀɴᴅꜱ:
+    GROUP_CMD = """<b>👥 Commandes de groupe :
 
-• /settings - <code>ᴄᴏɴꜰɪɢᴜʀᴇ ɢʀᴏᴜᴘ ꜱᴇᴛᴛɪɴɢꜱ</code>
-• /set_shortner - <code>ꜱᴇᴛ 1ꜱᴛ ꜱʜᴏʀᴛᴇɴᴇʀ</code>
-• /set_shortner_2 - <code>ꜱᴇᴛ 2ɴᴅ ꜱʜᴏʀᴛᴇɴᴇʀ</code>
-• /set_shortner_3 - <code>ꜱᴇᴛ 3ʀᴅ ꜱʜᴏʀᴛᴇɴᴇʀ</code>
-• /set_tutorial - <code>ꜱᴇᴛ 1ꜱᴛ ᴛᴜᴛᴏʀɪᴀʟ</code>
-• /set_tutorial_2 - <code>ꜱᴇᴛ 2ɴᴅ ᴛᴜᴛᴏʀɪᴀʟ</code>
-• /set_tutorial_3 - <code>ꜱᴇᴛ 3ʀᴅ ᴛᴜᴛᴏʀɪᴀʟ</code>
-• /set_time - <code>ꜱᴇᴛ 1ꜱᴛ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ᴛɪᴍᴇ</code>
-• /set_time_2 - <code>ꜱᴇᴛ 2ɴᴅ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ᴛɪᴍᴇ</code>
-• /set_log_channel - <code>ꜱᴇᴛ ʟᴏɢ ᴄʜᴀɴɴᴇʟ</code>
-• /set_fsub - <code>ꜱᴇᴛ ꜰᴏʀᴄᴇ ꜱᴜʙ</code>
-• /reload - <code>ᴄᴏɴɴᴇᴄᴛ ʏᴏᴜʀ ɢʀᴏᴜᴘ</code>
-• /remove_fsub - <code>ʀᴇᴍᴏᴠᴇ ꜰᴏʀᴄᴇ ꜱᴜʙ</code>
-• /reset_group - <code>ʀᴇꜱᴇᴛ ꜱᴇᴛᴛɪɴɢꜱ</code>
-• /details - <code>ᴄʜᴇᴄᴋ ꜱᴇᴛᴛɪɴɢꜱ</code></b>"""
+• /settings - <code>configurer les paramètres du groupe</code>
+• /set_shortner - <code>définir le 1er raccourcisseur</code>
+• /set_shortner_2 - <code>définir le 2ème raccourcisseur</code>
+• /set_shortner_3 - <code>définir le 3ème raccourcisseur</code>
+• /set_tutorial - <code>définir le 1er tutoriel</code>
+• /set_tutorial_2 - <code>définir le 2ème tutoriel</code>
+• /set_tutorial_3 - <code>définir le 3ème tutoriel</code>
+• /set_time - <code>définir le 1er temps de vérification</code>
+• /set_time_2 - <code>définir le 2ème temps de vérification</code>
+• /set_log_channel - <code>définir le canal de logs</code>
+• /set_fsub - <code>définir l'abonnement forcé</code>
+• /reload - <code>connecter votre groupe</code>
+• /remove_fsub - <code>supprimer l'abonnement forcé</code>
+• /reset_group - <code>réinitialiser les paramètres</code>
+• /details - <code>vérifier les paramètres</code></b>"""
 
-    PAGE_TXT = """ᴡʜʏ ᴀʀᴇ ʏᴏᴜ ꜱᴏ ᴄᴜʀɪᴏᴜꜱ ⁉️"""    
+    PAGE_TXT = """Pourquoi êtes-vous si curieux ⁉️"""    
    
-    SOURCE_TXT = """<b>𝖲𝖮𝖴𝖱𝖢𝖤 𝖢𝖮𝖣𝖤 :</b> 👇\nᴛʜɪꜱ ɪꜱ ᴀɴ ᴏᴘᴇɴ-ꜱᴏᴜʀᴄᴇ ᴘʀᴏᴊᴇᴄᴛ. ʏᴏᴜ ᴄᴀɴ ᴜꜱᴇ ɪᴛ ꜰʀᴇᴇʟʏ, ʙᴜᴛ ꜱᴇʟʟɪɴɢ ᴛʜᴇ ꜱᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ɪꜱ ꜱᴛʀɪᴄᴛʟʏ ᴘʀᴏʜɪʙɪᴛᴇᴅ."""
+    SOURCE_TXT = """<b>CODE SOURCE :</b> 👇\nIl s'agit d'un projet open source. Vous pouvez l'utiliser librement, mais la vente du code source est strictement interdite."""

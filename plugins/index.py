@@ -18,28 +18,28 @@ lock = asyncio.Lock()
 async def index_files(bot, query):
     if query.data.startswith('index_cancel'):
         temp.CANCEL = True
-        return await query.answer("Cancelling Indexing")
+        return await query.answer("Annulation de l'indexation")
     _, raju, chat, lst_msg_id, from_user = query.data.split("#")
     if raju == 'reject':
         await query.message.delete()
         await bot.send_message(int(from_user),
-                               f'Your Submission for indexing {chat} has been declined by our moderators.',
+                               f'Votre soumission pour indexer {chat} a été refusée par nos modérateurs.',
                                reply_to_message_id=int(lst_msg_id))
         return
 
     if lock.locked():
-        return await query.answer('Wait until previous process complete.', show_alert=True)
+        return await query.answer('Attendez que le processus précédent soit terminé.', show_alert=True)
     msg = query.message
 
-    await query.answer('Processing...⏳', show_alert=True)
+    await query.answer('Traitement en cours...⏳', show_alert=True)
     if int(from_user) not in ADMINS:
         await bot.send_message(int(from_user),
-                               f'Your Submission for indexing {chat} has been accepted by our moderators and will be added soon.',
+                               f'Votre soumission pour indexer {chat} a été acceptée par nos modérateurs et sera ajoutée bientôt.',
                                reply_to_message_id=int(lst_msg_id))
     await msg.edit(
-        "Starting Indexing",
+        "Début de l'indexation",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton('Cancel', callback_data='index_cancel')]]
+            [[InlineKeyboardButton('Annuler', callback_data='index_cancel')]]
         )
     )
     try:
@@ -55,7 +55,7 @@ async def send_for_index(bot, message):
         regex = re.compile(r"(https://)?(t\.me/|telegram\.me/|telegram\.dog/)(c/)?(\d+|[a-zA-Z_0-9]+)/(\d+)$")
         match = regex.match(message.text)
         if not match:
-            return await message.reply('Invalid link')
+            return await message.reply('Lien invalide')
         chat_id = match.group(4)
         last_msg_id = int(match.group(5))
         if chat_id.isnumeric():
@@ -68,45 +68,45 @@ async def send_for_index(bot, message):
     try:
         await bot.get_chat(chat_id)
     except ChannelInvalid:
-        return await message.reply('This may be a private channel / group. Make me an admin over there to index the files.')
+        return await message.reply('Ceci peut être un canal/groupe privé. Faites-moi administrateur là-bas pour indexer les fichiers.')
     except (UsernameInvalid, UsernameNotModified):
-        return await message.reply('Invalid Link specified.')
+        return await message.reply('Lien spécifié invalide.')
     except Exception as e:
         LOGGER.error(e)
-        return await message.reply(f'Errors - {e}')
+        return await message.reply(f'Erreurs - {e}')
     try:
         k = await bot.get_messages(chat_id, last_msg_id)
     except:
-        return await message.reply('Make Sure That Iam An Admin In The Channel, if channel is private')
+        return await message.reply('Assurez-vous que je suis administrateur dans le canal, si le canal est privé')
     if k.empty:
-        return await message.reply('This may be group and i am not a admin of the group.')
+        return await message.reply('Ceci peut être un groupe et je ne suis pas administrateur du groupe.')
 
     if message.from_user.id in ADMINS:
         buttons = [
-            [InlineKeyboardButton('Yes', callback_data=f'index#accept#{chat_id}#{last_msg_id}#{message.from_user.id}')],
-            [InlineKeyboardButton('Close', callback_data='close_data')]
+            [InlineKeyboardButton('Oui', callback_data=f'index#accept#{chat_id}#{last_msg_id}#{message.from_user.id}')],
+            [InlineKeyboardButton('Fermer', callback_data='close_data')]
         ]
         reply_markup = InlineKeyboardMarkup(buttons)
         return await message.reply(
-            f'Do you Want To Index This Channel/ Group ?\n\nChat ID/ Username: <code>{chat_id}</code>\nLast Message ID: <code>{last_msg_id}</code>\n\nɴᴇᴇᴅ sᴇᴛsᴋɪᴘ 👉🏻 /setskip',
+            f'Voulez-vous indexer ce canal/groupe ?\n\nID/Nom du chat : <code>{chat_id}</code>\nDernier ID de message : <code>{last_msg_id}</code>\n\nBesoin de définir skip 👉🏻 /setskip',
             reply_markup=reply_markup)
 
     if type(chat_id) is int:
         try:
             link = (await bot.create_chat_invite_link(chat_id)).invite_link
         except ChatAdminRequired:
-            return await message.reply('Make sure I am an admin in the chat and have permission to invite users.')
+            return await message.reply('Assurez-vous que je suis administrateur du chat et que j\'ai la permission d\'inviter des utilisateurs.')
     else:
         link = f"@{message.forward_from_chat.username}"
     buttons = [
-        [InlineKeyboardButton('Accept Index', callback_data=f'index#accept#{chat_id}#{last_msg_id}#{message.from_user.id}')],
-        [InlineKeyboardButton('Reject Index', callback_data=f'index#reject#{chat_id}#{message.id}#{message.from_user.id}')]
+        [InlineKeyboardButton('Accepter l\'indexation', callback_data=f'index#accept#{chat_id}#{last_msg_id}#{message.from_user.id}')],
+        [InlineKeyboardButton('Refuser l\'indexation', callback_data=f'index#reject#{chat_id}#{message.id}#{message.from_user.id}')]
     ]
     reply_markup = InlineKeyboardMarkup(buttons)
     await bot.send_message(LOG_CHANNEL,
-                           f'#IndexRequest\n\nBy : {message.from_user.mention} (<code>{message.from_user.id}</code>)\nChat ID/ Username - <code> {chat_id}</code>\nLast Message ID - <code>{last_msg_id}</code>\nInviteLink - {link}',
+                           f'#DemandeIndexation\n\nPar : {message.from_user.mention} (<code>{message.from_user.id}</code>)\nID/Nom du chat - <code> {chat_id}</code>\nDernier ID de message - <code>{last_msg_id}</code>\nLien d\'invitation - {link}',
                            reply_markup=reply_markup)
-    await message.reply('ThankYou For the Contribution, Wait For My Moderators to verify the files.')
+    await message.reply('Merci pour votre contribution, attendez que nos modérateurs vérifient les fichiers.')
 
 
 @Client.on_message(filters.command('setskip') & filters.user(ADMINS))
@@ -116,11 +116,11 @@ async def set_skip_number(bot, message):
         try:
             skip = int(skip)
         except:
-            return await message.reply("Skip number should be an integer.")
-        await message.reply(f"Successfully set SKIP number as {skip}")
+            return await message.reply("Le nombre de skip doit être un entier.")
+        await message.reply(f"Nombre SKIP défini avec succès sur {skip}")
         temp.CURRENT = int(skip)
     else:
-        await message.reply("Give me a skip number")
+        await message.reply("Donnez-moi un nombre de skip")
 
 def get_progress_bar(percent, length=10):
     filled = int(length * percent / 100)
@@ -145,18 +145,18 @@ async def index_files_to_db(lst_msg_id, chat, msg, bot):
             total_fetch = lst_msg_id - current
             if total_messages <= 0:
                 await msg.edit(
-                    "🚫 No Messages To Index.",
-                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('Close', callback_data='close_data')]])
+                    "🚫 Aucun message à indexer.",
+                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('Fermer', callback_data='close_data')]])
                 )
                 return
             batches = ceil(total_messages / BATCH_SIZE)
             batch_times = []
             await msg.edit(
-                f"📊 Indexing Starting......\n"
-                f"💬 Total Messages: <code>{total_messages}</code>\n"
-                f"💾 Total Fetch: <code> {total_fetch}</code>\n"
-                f"⏰ Elapsed: <code>{get_readable_time(time.time() - start_time)}</code>",
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('Cancel', callback_data='index_cancel')]])
+                f"📊 Début de l'indexation......\n"
+                f"💬 Messages totaux : <code>{total_messages}</code>\n"
+                f"💾 Total à récupérer : <code> {total_fetch}</code>\n"
+                f"⏰ Écoulé : <code>{get_readable_time(time.time() - start_time)}</code>",
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('Annuler', callback_data='index_cancel')]])
             )
             for batch in range(batches):
                 if temp.CANCEL:
@@ -218,37 +218,37 @@ async def index_files_to_db(lst_msg_id, chat, msg, bot):
                 eta = (total_fetch - progress) / BATCH_SIZE * avg_batch_time
                 progress_bar = get_progress_bar(int(percentage))
                 await msg.edit(
-                    f"📊 Indexing Progress\n"
-                    f"📦 Batch No: {batch + 1}/{batches}\n"
+                    f"📊 Progression de l'indexation\n"
+                    f"📦 Lot n° : {batch + 1}/{batches}\n"
                     f"{progress_bar} <code>{percentage:.1f}%</code>\n"
-                    f"💬 Total Messages: <code>{total_messages}</code>\n"
-                    f"📥 Total Fetch: <code>{total_fetch}</code>\n"
-                    f"⬇️ Fetched: <code>{current}</code>\n"
-                    f"💾 Saved: <code>{total_files}</code>\n"
-                    f"🔄 Duplicates: <code>{duplicate}</code>\n"
-                    f"🗑️ Deleted: <code>{deleted}</code>\n"
-                    f"📴 Non-Media: <code>{no_media + unsupported}</code> (🚫 Unsupported: <code>{unsupported}</code>)\n"
-                    f"⚠️ Errors: <code>{errors}</code>\n"
-                    f"⏱️ Elapsed: <code>{get_readable_time(elapsed)}</code>\n"
-                    f"⏰ ETA: <code>{get_readable_time(eta)}</code>",
-                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('Cancel', callback_data='index_cancel')]])
+                    f"💬 Messages totaux : <code>{total_messages}</code>\n"
+                    f"📥 Total à récupérer : <code>{total_fetch}</code>\n"
+                    f"⬇️ Récupérés : <code>{current}</code>\n"
+                    f"💾 Sauvegardés : <code>{total_files}</code>\n"
+                    f"🔄 Doublons : <code>{duplicate}</code>\n"
+                    f"🗑️ Supprimés : <code>{deleted}</code>\n"
+                    f"📴 Non-médias : <code>{no_media + unsupported}</code> (🚫 Non supportés : <code>{unsupported}</code>)\n"
+                    f"⚠️ Erreurs : <code>{errors}</code>\n"
+                    f"⏱️ Écoulé : <code>{get_readable_time(elapsed)}</code>\n"
+                    f"⏰ ETA : <code>{get_readable_time(eta)}</code>",
+                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('Annuler', callback_data='index_cancel')]])
                 )
             elapsed = time.time() - start_time
             await msg.edit(
-                f"✅ Indexing Completed!\n"
-                f"💬 Total Message: <code>{total_messages}</code>a\n" 
-                f"📥 Total Fetch: <code>{total_fetch}</code>\n"
-                f"⬇️ Fetched: <code>{current}</code>\n"
-                f"💾 Saved: <code>{total_files}</code>\n"
-                f"🔄 Duplicates: <code>{duplicate}</code>\n"
-                f"🗑️ Deleted: <code>{deleted}</code>\n"
-                f"📴 Non-Media: <code>{no_media + unsupported}</code> (Unsupported: <code>{unsupported}</code>)\n"
-                f"⚠️ Errors: <code>{errors}</code>\n"
-                f"⏰ Elapsed: <code>{get_readable_time(elapsed)}</code>",
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('Close', callback_data='close_data')]])
+                f"✅ Indexation terminée !\n"
+                f"💬 Messages totaux : <code>{total_messages}</code>\n" 
+                f"📥 Total à récupérer : <code>{total_fetch}</code>\n"
+                f"⬇️ Récupérés : <code>{current}</code>\n"
+                f"💾 Sauvegardés : <code>{total_files}</code>\n"
+                f"🔄 Doublons : <code>{duplicate}</code>\n"
+                f"🗑️ Supprimés : <code>{deleted}</code>\n"
+                f"📴 Non-médias : <code>{no_media + unsupported}</code> (Non supportés : <code>{unsupported}</code>)\n"
+                f"⚠️ Erreurs : <code>{errors}</code>\n"
+                f"⏰ Écoulé : <code>{get_readable_time(elapsed)}</code>",
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('Fermer', callback_data='close_data')]])
             )
         except Exception as e:
             await msg.edit(
-                f"❌ Error: <code>{e}</code>",
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('Close', callback_data='close_data')]])
+                f"❌ Erreur : <code>{e}</code>",
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('Fermer', callback_data='close_data')]])
             )

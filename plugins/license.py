@@ -62,13 +62,13 @@ async def generate_code_cmd(client, message):
         premium_duration_seconds = await parse_duration(duration_str)
         if premium_duration_seconds is not None:
             token = await generate_code(duration_str)
-            keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("🔑 Redeem Now 🔥", url=f"https://t.me/{temp.U_NAME}")]])
-            await message.reply_text(f"✅ ᴄᴏᴅᴇ ɢᴇɴᴇʀᴀᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ ♻️\n\n🔑 ᴄᴏᴅᴇ: `{token}`\n⌛ Vᴀʟɪᴅɪᴛʏ: {duration_str}\n\n𝐔𝐬𝐞 : `/redeem {token}`\n\n𝐍𝐨𝐭𝐞 : Oɴʟʏ Oɴᴇ Usᴇʀ Cᴀɴ Usᴇ", reply_markup=keyboard)
+            keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("🔑 Utiliser maintenant 🔥", url=f"https://t.me/{temp.U_NAME}")]])
+            await message.reply_text(f"✅ Code généré avec succès ♻️\n\n🔑 Code : `{token}`\n⌛ Validité : {duration_str}\n\nUtilisation : `/redeem {token}`\n\nNote : Un seul utilisateur peut l'utiliser", reply_markup=keyboard)
                                        
         else:
-            await message.reply_text("❌ ɪɴᴠᴀʟɪᴅ ᴅᴜʀᴀᴛɪᴏɴ ғᴏʀᴍᴀᴛ. ᴘʟᴇᴀsᴇ ᴇɴᴛᴇʀ ᴀ ᴠᴀʟɪᴅ ᴅᴜʀᴀᴛɪᴏɴ ʟɪᴋᴇ '1minute', '1hours', '1days', '1months', '1years', etc.")
+            await message.reply_text("❌ Format de durée invalide. Veuillez entrer une durée valide comme '1minute', '1hours', '1days', '1months', '1years', etc.")
     else:
-        await message.reply_text("Usage: /code 1month")
+        await message.reply_text("Usage : /code 1month")
 
 @Client.on_message(filters.command("redeem"))
 async def redeem_code_cmd(client, message):
@@ -80,7 +80,7 @@ async def redeem_code_cmd(client, message):
             code_data = await db.codes.find_one({"code_hash": hash_code(code)})
             if code_data:
                 if code_data['used']:
-                    await message.reply_text(f"🚫 ᴛʜɪs ᴄᴏᴅᴇ ᴀʟʀᴇᴀᴅʏ ᴜsᴇᴅ 🚫.")
+                    await message.reply_text(f"🚫 Ce code a déjà été utilisé 🚫.")
                     return
                 premium_duration_seconds = await parse_duration(code_data['duration'])
                 if premium_duration_seconds is not None:
@@ -88,51 +88,51 @@ async def redeem_code_cmd(client, message):
                     user_data = {"id": user_id, "expiry_time": new_expiry}
                     await db.update_user(user_data)
                     await db.codes.update_one({"_id": code_data["_id"]}, {"$set": {"used": True, "user_id": user_id}})
-                    expiry_str_in_ist = new_expiry.astimezone(pytz.timezone("Asia/Kolkata")).strftime("⌛️ ᴇxᴘɪʀʏ ᴅᴀᴛᴇ: %d-%m-%Y\n⏱️ ᴇxᴘɪʀʏ ᴛɪᴍᴇ: %I:%M:%S %p")
-                    await message.reply_text(f"🎉 ᴄᴏᴅᴇ ʀᴇᴅᴇᴇᴍᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ!\nᴏᴜ ɴᴏᴡ ʜᴀᴠᴇ ᴘʀᴇᴍɪᴜᴍ ᴀᴄᴄᴇss ᴜɴᴛɪʟ:\n\n✨ᴅᴜʀᴀᴛɪᴏɴ: {code_data['duration']}\n{expiry_str_in_ist}")
+                    expiry_str_in_ist = new_expiry.astimezone(pytz.timezone("Asia/Kolkata")).strftime("⌛️ Date d'expiration : %d-%m-%Y\n⏱️ Heure d'expiration : %I:%M:%S %p")
+                    await message.reply_text(f"🎉 Code utilisé avec succès !\nVous avez maintenant un accès premium jusqu'à :\n\n✨ Durée : {code_data['duration']}\n{expiry_str_in_ist}")
                 else:
-                    await message.reply_text("🚫 ɪɴᴠᴀʟɪᴅ ᴅᴜʀᴀᴛɪᴏɴ ɪɴ ᴛʜᴇ ᴄᴏᴅᴇ.")
+                    await message.reply_text("🚫 Durée invalide dans le code.")
             else:
-                await message.reply_text("🚫 ɪɴᴠᴀʟɪᴅ ᴏʀ ᴇxᴘɪʀᴇᴅ ᴄᴏᴅᴇ.")
+                await message.reply_text("🚫 Code invalide ou expiré.")
         else:
-            await message.reply_text("❌ ʏᴏᴜ ᴀʟʀᴇᴀᴅʏ ʜᴀᴠᴇ ᴘʀᴇᴍɪᴜᴍ ᴀᴄᴄᴇss.")
+            await message.reply_text("❌ Vous avez déjà un accès premium.")
     else:
-        await message.reply_text("Usage: /redeem <code>")
+        await message.reply_text("Usage : /redeem <code>")
 
 @Client.on_message(filters.command("clearcodes") & filters.user(ADMINS))
 async def clear_codes_cmd(client, message):
     result = await db.codes.delete_many({})
     if result.deleted_count > 0:
-        await message.reply_text(f"✅ ᴀʟʟ {result.deleted_count} ᴄᴏᴅᴇs ʜᴀᴠᴇ ʙᴇᴇɴ ʀᴇᴍᴏᴠᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ.")
+        await message.reply_text(f"✅ Tous les {result.deleted_count} codes ont été supprimés avec succès.")
     else:
-        await message.reply_text("⚠️ ɴᴏ ᴄᴏᴅᴇs ғᴏᴜɴᴅ ᴛʜᴀᴛ ᴄᴏᴜʟᴅ ʙᴇ ᴄʟᴇᴀʀᴇᴅ.")
+        await message.reply_text("⚠️ Aucun code trouvé à supprimer.")
 
 @Client.on_message(filters.command("allcodes") & filters.user(ADMINS))
 async def all_codes_cmd(client, message):
     all_codes = await db.codes.find({}).to_list(length=None)
     if not all_codes:
-        await message.reply_text("⚠️ ᴛʜᴇʀᴇ ᴀʀᴇ ɴᴏ ᴄᴏᴅᴇs ᴀᴠᴀɪʟᴀʙʟᴇ.")
+        await message.reply_text("⚠️ Aucun code disponible.")
         return
 
-    codes_info = "📝 **ɢᴇɴᴇʀᴀᴛᴇᴅ ᴄᴏᴅᴇs ᴅᴇᴛᴀɪʟs:**\n\n"
+    codes_info = "📝 **Détails des codes générés :**\n\n"
     for code_data in all_codes:
-        original_code = code_data.get("original_code", "Unknown") 
-        duration = code_data.get("duration", "Unknown")
+        original_code = code_data.get("original_code", "Inconnu") 
+        duration = code_data.get("duration", "Inconnu")
         user_id = code_data.get("user_id")
-        used = "Yes ✅" if code_data.get("used", False) else "No ⭕"
+        used = "Oui ✅" if code_data.get("used", False) else "Non ⭕"
         created_at = code_data["created_at"].astimezone(pytz.timezone("Asia/Kolkata")).strftime("%d-%m-%Y %I:%M %p")
         if user_id:
             user = await client.get_users(user_id)
-            user_name = user.first_name if user.first_name else "Unknown User"
+            user_name = user.first_name if user.first_name else "Utilisateur inconnu"
             user_mention = f"[{user_name}](tg://user?id={user_id})"
         else:
-            user_mention = "Not Redeemed"
+            user_mention = "Non utilisé"
         
-        codes_info += f"**🔑 Code**: `{original_code}`\n"
-        codes_info += f"**⌛ Duration**: {duration}\n"
-        codes_info += f"**‼ Used**: {used}\n"
-        codes_info += f"**🕓 Created At**: {created_at}\n"
-        codes_info += f"**🙎 User ID**: {user_mention}\n\n"
+        codes_info += f"**🔑 Code** : `{original_code}`\n"
+        codes_info += f"**⌛ Durée** : {duration}\n"
+        codes_info += f"**‼ Utilisé** : {used}\n"
+        codes_info += f"**🕓 Créé le** : {created_at}\n"
+        codes_info += f"**🙎 ID utilisateur** : {user_mention}\n\n"
 
 
     for chunk in [codes_info[i:i + 4096] for i in range(0, len(codes_info), 4096)]:
