@@ -54,9 +54,9 @@ DB_CHANGE_LIMIT = int(environ.get('DB_CHANGE_LIMIT', "432"))
 GRP_LNK = environ.get('GRP_LNK', 'https://t.me/BubleWatchGrp')
 CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/BubleWatch')
 OWNER_LNK = environ.get('OWNER_LNK', 'https://t.me/kingcey')
-UPDATE_CHANNEL_LNK = environ.get('UPDATE_CHANNEL_LNK', 'https://t.me/YumeeFlower')
+UPDATE_CHANNEL_LNK = environ.get('UPDATE_CHANNEL_LNK', 'https://t.me/BubleWatch')
 
-AUTH_CHANNEL = environ.get("AUTH_CHANNEL", "-1003182880183") # add multiple channels here, separated by single space
+AUTH_CHANNEL = environ.get("AUTH_CHANNEL", "-1003182880183 -1002748899284 -1003025652660") # add multiple channels here, separated by single space
 AUTH_REQ_CHANNEL = environ.get('AUTH_REQ_CHANNEL', '-100')
 
 IS_VERIFY = is_enabled('IS_VERIFY', False)
