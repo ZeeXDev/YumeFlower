@@ -39,7 +39,7 @@ auth_grp = environ.get('AUTH_GROUP')
 AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
 reqst_channel = environ.get('REQST_CHANNEL_ID', '-1003340962000') 
 REQST_CHANNEL = int(reqst_channel) if reqst_channel and id_pattern.search(reqst_channel) else None
-support_chat_id = environ.get('SUPPORT_CHAT_ID', '-1003145596183 -1002479464192') 
+support_chat_id = environ.get('SUPPORT_CHAT_ID', '-1003145596183') 
 SUPPORT_CHAT_ID = int(support_chat_id) if support_chat_id and id_pattern.search(support_chat_id) else None
 
 DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://stockagebot:k9CYfqFkGRIkmQHH@cluster0.wu6y2gi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
